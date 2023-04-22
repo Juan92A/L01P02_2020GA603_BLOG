@@ -1,0 +1,47 @@
+﻿@model IEnumerable<L01P02_2020GA603.Models.Calificaciones>
+
+@{
+    ViewData["Title"] = "Calificaciones";
+}
+
+<h1>Calificaciones</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicacionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calificacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicacionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calificacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CalificacionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CalificacionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CalificacionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
